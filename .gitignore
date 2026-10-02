@@ -1,0 +1,21 @@
+# data
+*.npy
+*.h5
+*.root
+
+# build outputs
+*.o
+*.run
+
+# figures (regenerate from scripts)
+*.pdf
+*.png
+
+# python / jupyter
+__pycache__/
+.ipynb_checkpoints/
+
+# misc
+outputs/
+.vscode/
+EOF
