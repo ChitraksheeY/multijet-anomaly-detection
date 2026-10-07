@@ -22,6 +22,7 @@ parser.add_argument('--process', default='test', type=str, help='Madgraph proces
 parser.add_argument('--root_file', type=str, help='Delphes ROOT file')
 parser.add_argument('--index', default='0', type=str, help='Run label for output filename')
 parser.add_argument('--lhe_file', type=str, help='LHE file name')
+parser.add_argument('--label', default=0, type=int, help='Label in the last column: 0 = background, 1 = signal')
 args = parser.parse_args()
 
 process = args.process
@@ -81,8 +82,8 @@ for index, data in enumerate(gen_pt):
 
 df = pd.DataFrame(np.array(allevents))
 
-# last column fixed to 1, as in the LHCO 2020 files
-df[2100] = 1
+# last column fixed to the specified label provided
+df[2100] = args.label
 
 os.makedirs(f'./h5_files/{process}', exist_ok=True)
 df.to_hdf(f'./h5_files/{process}/run_{args.index}.h5', key='df', mode='w')

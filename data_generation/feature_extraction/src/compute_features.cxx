@@ -1,6 +1,6 @@
 // Compute jet and event-level features from LHCO-style particle data.
 //
-// Usage: parse_data_parallel_allfeatures_CY.run <input.root> <output.root> <tree_name> [max_events]
+// Usage: compute_features.run <input.root> <output.root> <tree_name> [max_events]
 //   input tree : data[2100]/D (700 particles x pT, eta, phi, zero-padded), type/I
 //   output tree: one entry per input event, same order (can be used as a friend tree)
 //   max_events : optional, default all events (for quick tests)

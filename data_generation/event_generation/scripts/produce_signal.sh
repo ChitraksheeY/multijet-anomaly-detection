@@ -23,6 +23,6 @@ root_file=samples/delphes_BlackBox3_${card/.cmnd/.root}
     sed s/NSEED/${RANDOM}/g <cards/$card >$cmnd_file
     echo "Generating events from: $cmnd_file"
     cmssw-slc6 -- sh -c "source /cvmfs/sft.cern.ch/lcg/views/LCG_79/x86_64-slc6-gcc49-opt/setup.sh; cd samples; $DELPHES_DIR/DelphesPythia8 ../cards/delphes_card_BlackBox3.dat ../$cmnd_file ../$root_file"
-    (cd samples; python ../scripts/make_dataframe.py --process delphes_BlackBox3_${card/.cmnd/} --root_file ../$root_file --index 0)
+    (cd samples; python ../scripts/make_dataframe.py --process delphes_BlackBox3_${card/.cmnd/} --root_file ../$root_file --index 0 --label 1)
     rm $root_file
 } >$log_file

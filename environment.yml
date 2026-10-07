@@ -1,0 +1,24 @@
+# Python environment for training and plotting (and make_dataframe.py / h5_to_root.py).
+#   conda env create -f environment.yml
+#   conda activate multijet_anomaly
+#   pip install -e sk_cathode
+# Versions are the ones used for the paper (Python 3.11, PyTorch 2.4 with CUDA 12).
+name: multijet_anomaly
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy=2.0
+  - scipy=1.14
+  - pandas=2.2
+  - pytables=3.10        # pandas HDF5 I/O (make_dataframe.py, h5_to_root.py)
+  - scikit-learn=1.5
+  - matplotlib=3.9
+  - tqdm
+  - root=6.32            # PyROOT, used by h5_to_root.py
+  - pytorch=2.4          # conda-forge picks the CUDA build if a GPU is available
+  - pip
+  - pip:
+      - uproot
+      - awkward
+      - torchdyn

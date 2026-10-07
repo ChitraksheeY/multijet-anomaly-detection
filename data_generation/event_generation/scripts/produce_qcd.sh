@@ -27,7 +27,7 @@ function produce() {
         sed s/NSEED/${RANDOM}${j}/g <cards/pythia_BlackBox3_qcd.cmnd >$cmnd_file
         echo "Generating events from: $cmnd_file"
         cmssw-slc6 -- sh -c "source /cvmfs/sft.cern.ch/lcg/views/LCG_79/x86_64-slc6-gcc49-opt/setup.sh; cd samples; $DELPHES_DIR/DelphesPythia8 ../cards/delphes_card_BlackBox3.dat ../$cmnd_file ../$root_file"
-        (cd samples; python ../scripts/make_dataframe.py --process delphes_BlackBox3_qcd --root_file ../$root_file --index ${i}_${j})
+        (cd samples; python ../scripts/make_dataframe.py --process delphes_BlackBox3_qcd --root_file ../$root_file --index ${i}_${j} --label 0)
         rm $root_file
     done >$log_file
 }
