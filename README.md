@@ -67,7 +67,9 @@ Each run writes LHCO-style HDF5 files (`samples/h5_files/<process>/run_<id>.h5`)
 
 Signals used in the paper:
 
-| Name | Paper | Card |
+The sample name is used for the feature files (`<name>.allfeatures.root`), the job scripts and the plot legends.
+
+| Sample name (used in scripts) | Signal process | Pythia card |
 |---|---|---|
 | `GKK_qq` | $G_\mathrm{KK}\to qq$ | `pythia_BlackBox3_KKg2qq.cmnd` |
 | `GKK_gR_Rgg_2217` | $G_\mathrm{KK}\to gR$, $R\to gg$, $m_R=2217$ GeV | `pythia_BlackBox3_KKg2gr.cmnd` |
