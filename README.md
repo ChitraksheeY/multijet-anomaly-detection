@@ -22,6 +22,7 @@ This wwork applies weakly supervised anomaly detection approach (CATHODE and an 
 │       └── scripts/                h5_to_root.py, run_features.sh
 ├── training/                       train.py and the SLURM job scripts
 ├── plotting/                       scripts for the paper figures
+├── significance_check/             Combine shape fit and counting experiment (Table 1)
 ├── sk_cathode/                     submodule: the sk_cathode library (multijet branch)
 └── environment.yml
 ```
@@ -126,6 +127,8 @@ For the R&D study done in the paper, `COMBO` is one of `mjj_HTtaus`, `mjj_Mjtaus
 | 5 | `plot_1D_Significance.py --family GKK` / `--family Wprime` |
 | 6 | `plot_2Dscan_SignalMix.py` |
 | 7 | `plot_1D_RnD_Mjj.py` (left), `plot_1D_RnD_Mrsd.py` (right, and the shared legend) |
+| Table 1 | `significance_check/shape_analysis.py`, `significance_check/sr_efficiency.py` (see `significance_check/README.md`) |
+
 
 Other plots in the paper can also be made using the same scripts and modifying the input signal.
 Each script has a usage example at the top (`python plotting/<script> --help`).
