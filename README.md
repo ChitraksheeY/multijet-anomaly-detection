@@ -143,5 +143,5 @@ Each script has a usage example at the top (`python plotting/<script> --help`).
 - Pythia and Delphes cards adapted from the LHC Olympics 2020 datasets:
   G. Kasieczka, B. Nachman, D. Shih, *Official Datasets for LHC Olympics 2020 Anomaly Detection Challenge*,
   Zenodo, [doi:10.5281/zenodo.4536624](https://doi.org/10.5281/zenodo.4536624) (CC BY 4.0).
-- Event generation scripts and the new signal cards by Louis Moureaux.
+- Combine cards and the new signal cards by Louis Moureaux.
 - The [sk_cathode](https://github.com/uhh-pd-ml/sk_cathode) library.
