@@ -1,4 +1,5 @@
 // Compute jet and event-level features from LHCO-style particle data.
+// This code was build on some example codes from SungHak Lim.
 //
 // Usage: compute_features.run <input.root> <output.root> <tree_name> [max_events]
 //   input tree : data[2100]/D (700 particles x pT, eta, phi, zero-padded), type/I

@@ -2,12 +2,21 @@
 
 This repository provides the code and utilities used for studies done for the paper *Anomaly detection for multijet scenarios*, [arXiv:2609.00132](https://arxiv.org/abs/2609.00132).
 
-This wwork applies weakly supervised anomaly detection approach (CATHODE and an Idealised Anomaly Detector, IAD) to multijet final states, based on the signals inspired by LHC Olympics 2020 challenge (specially Black Box 3). The chain is:
+We study weakly supervised resonant anomaly detection for signals with multijet final states, inspired by Black Box 3 datset of the LHC Olympics 2020. The anomaly detection is done with CATHODE, using a conditional flow
+matching model to estimate the background, and compared with an Idealised Anomaly Detector (IAD). Resonant variables beyond the dijet mass, such as the mass of the groomed event
+($M_\mathrm{RSD}$), are combined with event-level features, for signals individually and for mixtures of signals. 
+
+The methods themselves (CATHODE, the idealised
+anomaly detector and weakly supervised classification in general) are implemented in the [sk_cathode](https://github.com/uhh-pd-ml/sk_cathode) library, included here as a submodule. To learn more about the methods or to try them out, start with the tutorials in `sk_cathode/demos/`.
+
+CATHODE was introduced in A. Hallin et al., *Classifying Anomalies THrough Outer Density Estimation*, [arXiv:2109.00546](https://arxiv.org/abs/2109.00546).
+
+The workflow chain consisits of:
 
 1. **Event generation**: All signals and background generation using Pythia 8 + Delphes, converted to LHCO-style HDF5 files.
 2. **Feature extraction**: FastJet clustering, Recursive Soft Drop and N-jettiness implementation, and feature calculation, written to ROOT files.
-3. **Training**: Supervised, IAD and CATHODE classifiers (CATHODE uses a conditional flow matching model as a ganerative model). All models architectures and usage are defined in the sk_cathode library, utilized here as a submodule for all trainings.
-4. **Plotting**: To produce result figures from the paper.
+3. **Training**: IAD and CATHODE (also supervised) classifiers (CATHODE uses a conditional flow matching model as a generative model). All models architectures and usage are defined in the `sk_cathode/sk_cathode/` library.
+4. **Plotting**: To produce results from the paper.
 
 ## Repository structure
 
@@ -99,7 +108,7 @@ The training expects the feature files as `<name>.allfeatures.root`, with the si
 ## 3. Training
 
 All job scripts are in `training/` and are submitted from the repository root. Set `DATADIR` in the scripts
-to the folder with the feature files. The conditional flow matching model is trained once without signal, as its trained in the sidebands.
+to the folder with the feature files. The conditional flow matching model is trained once in the sidebands without injected signal and reused for all signal injections.
 
 | Study | Step 1 | Step 2 |
 |---|---|---|
@@ -130,7 +139,7 @@ For the R&D study done in the paper, `COMBO` is one of `mjj_HTtaus`, `mjj_Mjtaus
 | Table 1 | `significance_check/shape_analysis.py`, `significance_check/sr_efficiency.py` (see `significance_check/README.md`) |
 
 
-Other plots in the paper can also be made using the same scripts and modifying the input signal.
+Other plots in the paper can also be made using the same scripts by changing the input signal.
 Each script has a usage example at the top (`python plotting/<script> --help`).
 
 
