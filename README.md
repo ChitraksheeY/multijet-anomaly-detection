@@ -6,7 +6,7 @@ This wwork applies weakly supervised anomaly detection approach (CATHODE and an 
 
 1. **Event generation**: All signals and background generation using Pythia 8 + Delphes, converted to LHCO-style HDF5 files.
 2. **Feature extraction**: FastJet clustering, Recursive Soft Drop and N-jettiness implementation, and feature calculation, written to ROOT files.
-3. **Training**: Supervised, IAD and CATHODE classifiers (CATHODE uses a conditional flow matching model as a ganerative model). All models are architectures and usage are defined in the sk_cathode library, utilized here as submodule for all trainings.
+3. **Training**: Supervised, IAD and CATHODE classifiers (CATHODE uses a conditional flow matching model as a ganerative model). All models architectures and usage are defined in the sk_cathode library, utilized here as a submodule for all trainings.
 4. **Plotting**: To produce result figures from the paper.
 
 ## Repository structure
@@ -133,10 +133,6 @@ For the R&D study done in the paper, `COMBO` is one of `mjj_HTtaus`, `mjj_Mjtaus
 Other plots in the paper can also be made using the same scripts and modifying the input signal.
 Each script has a usage example at the top (`python plotting/<script> --help`).
 
-## Notes
-
-- Event generation seeds are drawn from `$RANDOM`; with many parallel jobs, two runs can occasionally get the same seed.
-- The `type` branch of the data file must be 0 for background events; `train.py` keeps only those from `--data`.
 
 ## Credits
 
